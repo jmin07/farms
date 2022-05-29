@@ -1,11 +1,9 @@
-import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
-import * as FaIcons from 'react-icons/fa';
 import * as IconName  from "react-icons/fc";
 
 import React from 'react';
 
-export const NavbarData = [
+const NavbarData = [
     {
         title:'Home',
         path:'/',
@@ -43,3 +41,5 @@ export const NavbarData = [
         cName: 'nav-text'
     }
 ]
+
+export default NavbarData;

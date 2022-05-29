@@ -3,9 +3,8 @@ import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import { lightGreen } from'@mui/material/colors';
 
-import { Redirect, renderMatches } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import '../../css/login.css';
+import './Modal.css';
 
 
 const LoginButton = styled(Button)({

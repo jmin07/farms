@@ -4,7 +4,7 @@ import { Button } from '@mui/material';
 import { yellow, lightGreen, grey } from'@mui/material/colors';
 import React from 'react';
 
-import '../../css/login.css';
+import './Modal.css';
 
 
 const LoginButton = styled(Button)({

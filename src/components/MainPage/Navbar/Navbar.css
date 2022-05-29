@@ -1,17 +1,14 @@
-
-
-
 .navbar{
-    background-color: rgb(139, 195, 74);
+    background-color: white;
     width: 250px;
-    height: 100vh;
+    height: 95vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    top: 0;
     box-sizing: border-box;
+    /* top: 0;
     margin: 0;
-    padding: 0;
+    padding: 0; */
     font-family: 'Lato', sans-serif;
 }
 
@@ -37,7 +34,7 @@
 
 .nav-text a {
     text-decoration: none;
-    color: #f5f5f5;
+    color: black;
     font-size: 25px;
     width: 95%;
     height: 100%;
@@ -58,9 +55,3 @@
 span{
     margin-left: 16px;
 }
-
-#header-text{
-    margin-top: 10px;
-    margin-bottom: 0;
-    margin-left: 3px;
-  }

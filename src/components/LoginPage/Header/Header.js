@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import Login from "./login";
-import SignUp from "./signup"
+import React, { useState } from "react";
+import Login from "../Modal/Login";
+import SignUp from "../Modal/Signup"
 
 import * as AiIcons from "react-icons/ai";
 
@@ -8,15 +8,13 @@ import { styled } from "@mui/material/styles";
 import { lightGreen, grey } from "@mui/material/colors";
 import { Button } from "@mui/material";
 
-import "../../css/header.css";
+import "./Header.css";
 
 const LoginButton = styled(Button)({
   color: "white",
   fontSize: 18,
   fontWeight: 550,
   borderRadius: "20px",
-  // marginTop: "12px",
-  // marginRight: "15px",
   backgroundColor: lightGreen[500],
   "&:hover": {
     backgroundColor: lightGreen[600],
@@ -29,14 +27,12 @@ const LoginButton = styled(Button)({
 const BootstrapButton = styled(Button)({
   color: "black",
   fontSize: 18,
-  // marginTop: "12px",
   fontWeight: 600,
   boxShadow: "true",
-  backgroundColor: "white",
+  backgroundColor: grey[300],
   borderRadius: "20px",
-  borderColor: "black",
   "&:hover": {
-    backgroundColor: grey[400],
+    backgroundColor: grey[500],
     boxShadow: "true",
   },
   width: "95px",
@@ -52,8 +48,8 @@ function Header() {
   const [signUpBar, setSignUpBar] = useState(false);
   const showSignUpBar = () => setSignUpBar(!signUpBar);
 
-  const [LoginState, setLoginState] = useState(false);
-  const changeLoginState = () => setLoginState(LoginState);
+  // const [LoginState, setLoginState] = useState(false);
+  // const changeLoginState = () => setLoginState(LoginState);
 
   return (
     <>
