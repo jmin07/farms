@@ -1,0 +1,12 @@
+body {
+  /* body 태그에는 기본적으로 margin 1px 이 있다. */
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+}

@@ -1,0 +1,94 @@
+.Login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100%;
+}
+
+.Login-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    border-radius: 40px;
+    background-color: white;
+    padding-left: 15px;
+    height: 68%;
+    width: 75%;
+}
+
+.Login-header{
+  display: flex;
+  width: 85%;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  /* text-align: center; */
+}
+
+#text{
+  display: block;
+  margin: 8px;
+  font-size: 30px;
+  text-align: center;
+}
+
+#title{
+  font-weight: bold;  
+}
+
+.Login-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 85%;
+}
+
+.Login-submit{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  width: 85%;
+}
+
+#or{
+  margin-bottom: 8px;
+  color: green;
+}
+
+.Login-bottom{
+  margin-top: 10px;
+}
+
+a{
+  text-decoration-line:none;
+  color: rgba(0,0,0,0.7);
+}
+
+a:hover{
+  font-weight: bolder;
+  color: green;
+  transition: 2;
+}
+
+#search-password::before{
+  content: "|";
+  margin: 10px 10px;
+}
+
+/* 
+#Sing-up{
+  margin: 5px;
+} */
+
+#search{
+  margin: 5px;
+  text-align: center;
+}
