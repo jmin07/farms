@@ -6,37 +6,37 @@ import React from 'react';
 const NavbarData = [
     {
         title:'Home',
-        path:'/',
+        path:'/main',
         icon: <IconName.FcHome />,
         cName: 'nav-text'
     },
     {
         title:'Report',
-        path:'/reports',
+        path:'/main/reports',
         icon: <IconName.FcComboChart />,
         cName: 'nav-text'
     },
     {
         title:'Products',
-        path:'/products',
+        path:'/main/products',
         icon: <IconName.FcBriefcase />,
         cName: 'nav-text'
     },
     {
         title:'Team',
-        path:'/team',
+        path:'/main/team',
         icon: <IconName.FcCollaboration />,
         cName: 'nav-text'
     },
     {
         title:'Messages',
-        path:'/messages',
+        path:'/main/messages',
         icon: <IconName.FcInvite />,
         cName: 'nav-text'
     },
     {
         title:'Support',
-        path:'/support',
+        path:'/main/support',
         icon: <IoIcons.IoMdHelpCircle />,
         cName: 'nav-text'
     }
