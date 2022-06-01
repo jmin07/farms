@@ -49,6 +49,34 @@ const BootstrapButton = styled(Button)({
 
 
 function Login(){
+    
+    const onSubmit = (event)=>{
+        event.preventDefault();
+
+        const userEmail = event.target.email.value;
+        const userPassword = event.target.password.value;
+
+        async function fetchData(){ 
+            const res = await fetch('http://localhost:8080/app/signin', {
+                method:"POST",
+                mode: 'cors',
+                origin: true,
+                credentials: 'include',     // 'include', 자격 증명을 포함한 요청 전송
+                headers: {
+                    'Content-Type':'application/json; charset=utf-8'
+                },
+                body: JSON.stringify({
+                    "email": userEmail,
+                    "password": userPassword
+                })})
+            const data = await res.json();
+            if(data.isSuccess === true){
+                console.log(data);
+            }
+        }
+        fetchData();
+    }    
+
     return(
         <div className='Login'>
             <div className='Login-box'>
@@ -58,7 +86,7 @@ function Login(){
                     <h2 id='text'>로그인</h2>
                 </div>
 
-                <form className='Login-item' action="/app/login" method='post'>
+                <form className='Login-item' action="/app/signin" method='post' onSubmit={onSubmit}>
                     <TextField label = "이메일 또는 휴대전화" name = "email" autoComplete='email' margin = "normal" required style ={{width: '85%'}}  autoFocus />
                     <TextField label = "비밀번호 입력" name = "password" margin = "normal" style ={{width: '85%'}} sx={{mt:0.5}} required />
                     <LoginButton type = "submit" variant="contained">로그인</LoginButton>

@@ -7,7 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 5px 5px 5px lightgrey;
+  box-shadow: 0 18px 18px -15px lightgray;
+  border-bottom: 0.5px solid lightgrey;
+  /* box-shadow: 5px 5px 5px lightgrey; */
   /* border-bottom: 2px solid lightgrey; */
   /* justify-content: center; */
   /* text-align: center; */
@@ -23,7 +25,6 @@
   width: 250px;
   height: 100%;
   /* border-radius: 20px; */
-  border-bottom: 1px solid lightgrey;
   /* border-right: 1px solid lightgrey; */
 }
 
