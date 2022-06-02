@@ -39,7 +39,7 @@ const BootstrapButton = styled(Button)({
   height: "45px",
 });
 
-function Header() {
+function Header(props) {
 
   const [Loginbar, setLoginbar] = useState(false);
   const showLoginBar = () => setLoginbar(!Loginbar);

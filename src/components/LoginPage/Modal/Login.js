@@ -84,12 +84,15 @@ function Login(props){
                 .then((res)=>res.json())
                 .then((res)=>{
                     if(res['isSuccess'] === true){
+                        const userId = res.result.userEmail;
+                        
                         return(
+                            
                             // 로그인 이후, 입력값 초기화
                             setEmailText(''),
                             setPasswordText(''),
                             // 로그인 이후, 페이지 이동
-                            navigate('/main')   
+                            navigate(`/${userId}/main`)   
                         )
                     } else if(res['isSuccess'] === false) {
                         return(

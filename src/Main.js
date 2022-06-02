@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
 // import { Cookies } from 'react-cookie'
 
 import App from './components/LoginPage/App';
@@ -14,11 +14,9 @@ import Reports from './components/MainPage/Content/Reports'
 
 
 function Main() {
-  // const cookies = new Cookies();
+  const params = useParams();
 
-  // const isAuthorized = cookies.get();
-  // console.log(isAuthorized);
-  
+  console.log("Main :", params);
 
   // {<Content />}
   return (
@@ -27,9 +25,10 @@ function Main() {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element= {<Content />} />
-          <Route path="main" element={<MainPage />}>
+          <Route path=":userId/main" element={<MainPage />}>
             <Route index element={<Content />} />
-            <Route path=":reports" element={<Reports />} />
+            <Route path=":pages" element={<Reports />} />
+            {/* Report 안에 있는 컴포넌트 들을 useParams 를 사용해서 변경한다? */}
           </Route>
 
 
