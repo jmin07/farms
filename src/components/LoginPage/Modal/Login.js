@@ -2,7 +2,8 @@ import { TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import { yellow, lightGreen, grey } from'@mui/material/colors';
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import './Modal.css';
 
@@ -45,11 +46,21 @@ const BootstrapButton = styled(Button)({
     height: "45px"
 })
 
-  
+
+function Login(props){
+    const [emailText, setEmailText] = useState('');
+    const [passwordText, setPasswordText] = useState('');
+
+    const emailChange = (event)=>{
+        setEmailText(event.target.value);
+    }
+
+    const passwordChange = (event)=>{
+        setPasswordText(event.target.value);
+    }
 
 
-function Login(){
-    
+    const navigate = useNavigate();
     const onSubmit = (event)=>{
         event.preventDefault();
 
@@ -57,21 +68,37 @@ function Login(){
         const userPassword = event.target.password.value;
 
         async function fetchData(){ 
-            const res = await fetch('http://localhost:8080/app/signin', {
-                method:"POST",
-                mode: 'cors',
-                origin: true,
-                credentials: 'include',     // 'include', 자격 증명을 포함한 요청 전송
-                headers: {
-                    'Content-Type':'application/json; charset=utf-8'
-                },
-                body: JSON.stringify({
-                    "email": userEmail,
-                    "password": userPassword
-                })})
-            const data = await res.json();
-            if(data.isSuccess === true){
-                console.log(data);
+            try{
+                await fetch('http://localhost:8080/app/signin', {
+                    method:"POST",
+                    mode: 'cors',
+                    credentials: 'include',     // 'include', 자격 증명을 포함한 요청 전송
+                    headers: {
+                        'Content-Type':'application/json; charset=utf-8'
+                    },
+                    body: JSON.stringify({
+                        "email": userEmail,
+                        "password": userPassword
+                    })
+                })
+                .then((res)=>res.json())
+                .then((res)=>{
+                    if(res['isSuccess'] === true){
+                        return(
+                            // 로그인 이후, 입력값 초기화
+                            setEmailText(''),
+                            setPasswordText(''),
+                            // 로그인 이후, 페이지 이동
+                            navigate('/main')   
+                        )
+                    } else if(res['isSuccess'] === false) {
+                        return(
+                            alert(`${res.message}`)
+                        )
+                    }
+                });
+            } catch(err){
+                console.log(err);
             }
         }
         fetchData();
@@ -87,8 +114,8 @@ function Login(){
                 </div>
 
                 <form className='Login-item' action="/app/signin" method='post' onSubmit={onSubmit}>
-                    <TextField label = "이메일 또는 휴대전화" name = "email" autoComplete='email' margin = "normal" required style ={{width: '85%'}}  autoFocus />
-                    <TextField label = "비밀번호 입력" name = "password" margin = "normal" style ={{width: '85%'}} sx={{mt:0.5}} required />
+                    <TextField value={emailText} onChange={emailChange} label = "이메일 또는 휴대전화" name = "email" autoComplete='email' margin = "normal" required style ={{width: '85%'}}  autoFocus />
+                    <TextField value={passwordText} onChange={passwordChange} label = "비밀번호 입력" name = "password" margin = "normal" style ={{width: '85%'}} sx={{mt:0.5}} required />
                     <LoginButton type = "submit" variant="contained">로그인</LoginButton>
                 </form>
 
