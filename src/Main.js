@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams } from "react-router-dom";
-// import { Cookies } from 'react-cookie'
+// import Cookie from 'js-cookie';
 
 import App from './components/LoginPage/App';
 import MainPage from './components/MainPage/MainPage';
@@ -9,11 +9,12 @@ import MainPage from './components/MainPage/MainPage';
 import Content from './components/LoginPage/Content/Content';
 // import MainContent from './components/MainPage/Content/Content'
 import Reports from './components/MainPage/Content/Reports'
+import PrivateRoute from './utils/PrivateRoute';
 
 // import "./css/App.css";
 
 
-function Main() {
+function Main(props) {
   const params = useParams();
 
   console.log("Main :", params);
@@ -25,18 +26,23 @@ function Main() {
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element= {<Content />} />
-          <Route path=":userId/main" element={<MainPage />}>
+          <Route path="board" element={<MainPage />}>
             <Route index element={<Content />} />
             <Route path=":pages" element={<Reports />} />
-            {/* Report 안에 있는 컴포넌트 들을 useParams 를 사용해서 변경한다? */}
           </Route>
+
+          {/* <Route path="board" element={
+            <PrivateRoute >
+              <MainPage />
+            </PrivateRoute>
+          }> */}
 
 
           {/* <Route path="main">
             <Route index element={<MainPage />} />
             <Route path=":reports" element={<Reports />} />
           </Route> */}
-
+          
         </Route>
 
       </Routes>

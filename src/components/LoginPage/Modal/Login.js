@@ -47,7 +47,7 @@ const BootstrapButton = styled(Button)({
 })
 
 
-function Login(props){
+function Login(){
     const [emailText, setEmailText] = useState('');
     const [passwordText, setPasswordText] = useState('');
 
@@ -81,7 +81,7 @@ function Login(props){
                         "password": userPassword
                     })
                 })
-                .then((res)=>res.json())
+                .then((res)=>res.json())    // return 을 생략했다.
                 .then((res)=>{
                     if(res['isSuccess'] === true){
                         const userId = res.result.userEmail;
@@ -92,7 +92,7 @@ function Login(props){
                             setEmailText(''),
                             setPasswordText(''),
                             // 로그인 이후, 페이지 이동
-                            navigate(`/${userId}/main`)   
+                            navigate(`/board`)   
                         )
                     } else if(res['isSuccess'] === false) {
                         return(
