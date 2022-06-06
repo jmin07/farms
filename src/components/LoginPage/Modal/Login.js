@@ -47,7 +47,7 @@ const BootstrapButton = styled(Button)({
 })
 
 
-function Login(){
+function Login(props){
     const [emailText, setEmailText] = useState('');
     const [passwordText, setPasswordText] = useState('');
 
@@ -84,10 +84,10 @@ function Login(){
                 .then((res)=>res.json())    // return 을 생략했다.
                 .then((res)=>{
                     if(res['isSuccess'] === true){
-                        const userId = res.result.userEmail;
+                        // const userId = res.result.userEmail;
                         
                         return(
-                            
+                            props.cookie(true),
                             // 로그인 이후, 입력값 초기화
                             setEmailText(''),
                             setPasswordText(''),

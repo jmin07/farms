@@ -9,7 +9,7 @@ import MainPage from './components/MainPage/MainPage';
 import Content from './components/LoginPage/Content/Content';
 // import MainContent from './components/MainPage/Content/Content'
 import Reports from './components/MainPage/Content/Reports'
-import PrivateRoute from './utils/PrivateRoute';
+// import PrivateRoute from './utils/PrivateRoute';
 
 // import "./css/App.css";
 

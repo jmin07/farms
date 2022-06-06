@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Login from "../Modal/Login";
+import Logout from "../Modal/Logout";
 import SignUp from "../Modal/Signup"
+import getCookie from '../Modal/CheckJWT';
 
 import * as AiIcons from "react-icons/ai";
 
@@ -39,17 +41,22 @@ const BootstrapButton = styled(Button)({
   height: "45px",
 });
 
-function Header(props) {
+function Header() {
 
+  const [cookie, setCookie] = useState(false);
   const [Loginbar, setLoginbar] = useState(false);
   const showLoginBar = () => setLoginbar(!Loginbar);
 
-
+  
   const [signUpBar, setSignUpBar] = useState(false);
   const showSignUpBar = () => setSignUpBar(!signUpBar);
 
-  // const [LoginState, setLoginState] = useState(false);
-  // const changeLoginState = () => setLoginState(LoginState);
+  const result = (text) => {
+    setCookie(text)
+  }
+
+
+
 
   return (
     <>
@@ -62,9 +69,16 @@ function Header(props) {
 
         <div className="login-button">
           
-          <div className="button SignIn">
-            <LoginButton onClick={showLoginBar}>로그인</LoginButton>
-          </div>
+          {cookie ? 
+            <div className="button SignIn">
+              <Logout>로그아웃</Logout>
+            </div>
+           :
+            <div className="button SignIn">
+              <LoginButton onClick={showLoginBar}>로그인</LoginButton>
+            </div>
+          }
+          
 
           <div className="button SignUp">
             <BootstrapButton onClick={showSignUpBar}>회원가입</BootstrapButton>
@@ -79,7 +93,7 @@ function Header(props) {
           </div>
           
           <div className="LoginSideBar">
-            <Login />
+            <Login cookie={result}/>
           </div>
        
         </div>

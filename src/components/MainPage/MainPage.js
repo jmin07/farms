@@ -30,7 +30,7 @@ function MainPage() {
         return(
           alert('로그인이 필요한 접속입니다.'),
           navigate('/')
-        )
+        );
       }
     })
     .catch((err)=>{
